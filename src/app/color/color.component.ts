@@ -12,7 +12,7 @@ import { FilsComponent } from './fils/fils.component';
 export class ColorComponent {
  color = "red"
 
- changeColor(input: { value: string; }){
+ changeColor(input: HTMLInputElement){
   this.color = input.value
   input.value= ''
  }

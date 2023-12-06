@@ -12,7 +12,7 @@ export class FilsComponent implements OnInit{
  
   myFavoriteColor="yellow";
   @Input() parentColor!:string;
-  @Output() SendColor = new EventEmitter()
+  @Output() SendColor = new EventEmitter<string>()
 
   constructor(){}
 

@@ -16,7 +16,6 @@ export class ListeCvComponent implements OnInit {
   @Output() selectedPersonne = new EventEmitter()
 
   ngOnInit(): void {
-    console.log(this.personnes)
   }
 
   selectPersonne(selectedPersonne: Personne){

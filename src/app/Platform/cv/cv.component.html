@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mt-5">
     <div class="col-md-6 col-sm-3">
         <app-liste-cv (selectedPersonne)="selectPersonne($event)" [personnes]= "personnes"></app-liste-cv>
     </div>
@@ -7,4 +7,8 @@
                        [personne]="selectedPersonne">
         </app-detail-cv>
     </div>
+</div>
+
+<div class="row">
+    <app-embauche></app-embauche>
 </div>

@@ -1,0 +1,9 @@
+<div *ngIf="personnes" class="row">
+    <div class="card ms-3" style="width: 10rem;" *ngFor="let personne of personnes">
+        <img class="card-img-top mt-3" src="assets/images/{{personne.path|defaultImage}}">
+        <div class="card-body">
+            <h5 class="card-title">{{personne.name}} {{personne.firstname}}</h5>
+            <button class="mt-3 btn btn-primary" (click)="debaucherPersonne(personne)" >Debaucher</button>
+        </div>
+    </div>
+</div>

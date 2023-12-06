@@ -3,26 +3,38 @@ import { CommonModule } from '@angular/common';
 import { DetailCvComponent } from '../detail-cv/detail-cv.component';
 import { ListeCvComponent } from '../liste-cv/liste-cv.component';
 import { Personne } from '../../Model/Personne';
-import { DefaultImagePipe } from '../default-image.pipe';
+import { CvService } from '../cv-service.service';
+import { EmbaucheComponent } from '../embauche/embauche.component';
+import {HttpClient, HttpClientModule } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cv',
   standalone: true,
-  imports: [CommonModule,DetailCvComponent,ListeCvComponent],
+  imports: [CommonModule,DetailCvComponent,ListeCvComponent,EmbaucheComponent,HttpClientModule],
   templateUrl: './cv.component.html',
-  styleUrl: './cv.component.css'
+  styleUrl: './cv.component.css',
 })
 export class CvComponent implements OnInit {
   
   personnes: Personne[] =[] ;
   selectedPersonne!: Personne;
-  constructor(){}
+  constructor(
+    private cvservice : CvService,
+    private http: HttpClient,
+  ){}
+
   ngOnInit(): void {
-    this.personnes= [
-      new Personne(1,'Foulen','Ben Falten',23,2222222,'Student','rotating_card_profile2.png'),
-      new Personne(2,'Tounsi','Tounsi',22,1111111,'Student','rotating_card_profile3.png'),
-      new Personne(2,'Test','Tp',30,450124,'Student',''),
-    ]
+    this.http.get('https://apilb.tridevs.net/api/personnes').subscribe(
+      (response) => {
+        console.log(response)
+        this.personnes = response as Personne[]
+      },
+      (error) => {
+        this.personnes= this.cvservice.getPersonne()
+        console.log(error)
+      }
+    );
   }
 
   selectPersonne(personne:Personne){

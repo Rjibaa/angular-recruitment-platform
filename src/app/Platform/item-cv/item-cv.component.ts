@@ -16,7 +16,6 @@ export class ItemCvComponent implements OnInit {
   @Output() selectedPersonne = new EventEmitter();
 
   ngOnInit(): void {
-    console.log(this.personne.name)  
   }
 
   selectPersonne(){
