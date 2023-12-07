@@ -4,6 +4,7 @@ import { CvService } from '../cv-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Personne } from '../../Model/Personne';
 import { DefaultImagePipe } from '../default-image.pipe';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-detail',
@@ -18,7 +19,8 @@ export class DetailComponent implements OnInit {
   constructor(
     private cvService: CvService,
     private activatedRoute : ActivatedRoute,
-    private route: Router
+    private route: Router,
+    private toast: ToastrService
   ){}
 
   ngOnInit(): void {
@@ -35,5 +37,6 @@ export class DetailComponent implements OnInit {
     this.cvService.deletePersonne(personne);
     const link=['cv'];
     this.route.navigate(link);
+    this.toast.show("Person deleted successfully");
   }
 }

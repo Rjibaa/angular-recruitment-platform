@@ -9,7 +9,6 @@ export class PersonneService {
   personneDetailSubject = new Subject<Personne>();
   constructor() { }
 
-
   showPersonneDetails(personne: Personne) {
     this.personneDetailSubject.next(personne);
   }

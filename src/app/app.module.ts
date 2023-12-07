@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserModule } from '@angular/platform-browser';
 import { CvService } from './Platform/cv-service.service';
+import { CvComponent } from './Platform/cv/cv.component';
 
 
 @NgModule({

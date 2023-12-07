@@ -9,7 +9,6 @@ import { ToastrService } from 'ngx-toastr';
 export class CvService {
   private personnes !: Personne[]
   constructor(
-    private toast: ToastrService
   ) { 
     this.personnes = [
       new Personne(1,'Foulen','Ben Falten',23,2222222,'Student','rotating_card_profile2.png'),
@@ -34,7 +33,6 @@ export class CvService {
 
   deletePersonne(personne:Personne):void{
     const index = this.personnes.indexOf(personne);
-    this.toast.show("toast")
     if(index>=0){
     this.personnes.splice(index,1);
     }

@@ -36,11 +36,7 @@ export class ObservableComponent implements OnInit {
           2000 )
       }
     );
-    this.monObservable.subscribe(
-      (result) => {
-        this.currentimage = result;
-      }
-    );
+
   }
 
 }

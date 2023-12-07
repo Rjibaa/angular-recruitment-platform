@@ -7,6 +7,7 @@ import { CvService } from '../cv-service.service';
 import { EmbaucheComponent } from '../embauche/embauche.component';
 import {HttpClient, HttpClientModule } from '@angular/common/http';
 import { PersonneService } from '../person-service.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cv',
@@ -24,7 +25,9 @@ export class CvComponent implements OnInit {
   constructor(
     private cvservice : CvService,
     private http: HttpClient,
-    private personneService: PersonneService
+    private personneService: PersonneService,
+    private toast: ToastrService
+
   ){}
 
   ngOnInit(): void {
@@ -35,7 +38,7 @@ export class CvComponent implements OnInit {
       },
       (error) => {
         this.personnes= this.cvservice.getPersonne()
-        console.log(error)
+        this.toast.show("API NOT FOUND")
       }
     );
     this.personneService.personneDetailSubject.subscribe((personne)=>{
