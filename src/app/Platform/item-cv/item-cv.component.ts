@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Personne } from '../../Model/Personne';
 import { DefaultImagePipe } from '../default-image.pipe';
+import { PersonneService } from '../person-service.service';
 
 @Component({
   selector: 'app-item-cv',
@@ -13,15 +14,16 @@ import { DefaultImagePipe } from '../default-image.pipe';
 export class ItemCvComponent implements OnInit {
   
   @Input() personne!:Personne ;
-  @Output() selectedPersonne = new EventEmitter();
+
+  constructor(
+    private personService: PersonneService
+  ){}
 
   ngOnInit(): void {
   }
 
   selectPersonne(){
-    this,this.selectedPersonne.emit(
-      this.personne
-    );
+    this.personService.showPersonneDetails(this.personne)
   }
 
 }

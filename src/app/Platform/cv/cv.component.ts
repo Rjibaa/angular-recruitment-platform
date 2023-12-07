@@ -6,7 +6,7 @@ import { Personne } from '../../Model/Personne';
 import { CvService } from '../cv-service.service';
 import { EmbaucheComponent } from '../embauche/embauche.component';
 import {HttpClient, HttpClientModule } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
+import { PersonneService } from '../person-service.service';
 
 @Component({
   selector: 'app-cv',
@@ -15,13 +15,16 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.css',
 })
+
 export class CvComponent implements OnInit {
   
   personnes: Personne[] =[] ;
   selectedPersonne!: Personne;
+
   constructor(
     private cvservice : CvService,
     private http: HttpClient,
+    private personneService: PersonneService
   ){}
 
   ngOnInit(): void {
@@ -35,10 +38,11 @@ export class CvComponent implements OnInit {
         console.log(error)
       }
     );
+    this.personneService.personneDetailSubject.subscribe((personne)=>{
+      this.selectedPersonne = personne;
+    })
+    
   }
 
-  selectPersonne(personne:Personne){
-    this.selectedPersonne=personne
-  }
 
 }

@@ -5,7 +5,8 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-import { CvComponent } from './Platform/cv/cv.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { CvService } from './Platform/cv-service.service';
 
 
 @NgModule({
@@ -15,8 +16,11 @@ import { CvComponent } from './Platform/cv/cv.component';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    BrowserModule,
     ToastrModule.forRoot(),
   ],
-  providers: []
+  providers: [
+    CvService
+  ]
 })
 export class AppModule { }

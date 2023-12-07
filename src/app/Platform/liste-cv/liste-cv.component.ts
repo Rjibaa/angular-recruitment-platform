@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ItemCvComponent } from '../item-cv/item-cv.component';
 import { Personne } from '../../Model/Personne';
+import { PersonneService } from '../person-service.service';
 
 @Component({
   selector: 'app-liste-cv',
@@ -13,12 +14,11 @@ import { Personne } from '../../Model/Personne';
 export class ListeCvComponent implements OnInit {
   
   @Input() personnes!:Personne[]
-  @Output() selectedPersonne = new EventEmitter()
+  
+  constructor(
+  ){}
 
   ngOnInit(): void {
   }
 
-  selectPersonne(selectedPersonne: Personne){
-    this.selectedPersonne.emit(selectedPersonne)
-  }
 }
