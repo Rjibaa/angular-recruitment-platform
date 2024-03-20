@@ -1,27 +1,74 @@
-# TpAngular
+# Angular Recruitment Platform
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+This repository contains the code for an Angular application designed for managing a recruitment platform. It includes components and directives for creating CV previews, simulating rainbow writing, managing recruitment alerts using ngx-toaster, and fetching data from a provided API.
 
-## Development server
+## Components
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### CardPreviewComponent
 
-## Code scaffolding
+- Allows users to preview a business card.
+- Contains inputs for entering card data.
+- Dynamically updates the card view as data is entered.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### CVListComponent
 
-## Build
+- Displays a list of CVs with details hidden until clicked.
+- Utilizes Angular directives for improved display.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### HeaderComponent
 
-## Running unit tests
+- Provides navigation links for the application.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Pipes
 
-## Running end-to-end tests
+### DefaultImagePipe
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Returns the name of a default image stored in the assets folder if the provided value is empty or contains only spaces.
 
-## Further help
+## Services
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### RecruitmentService
+
+- Handles recruitment functionalities.
+- Integrates ngx-toaster library for displaying recruitment alerts.
+
+### ApiService
+
+- Fetches data from the provided API endpoint.
+- Displays fake CVs and error toast messages in case of API retrieval errors.
+
+## Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Rjibaa/angular-recruitment-platform.git
+   ```
+2. Install dependencies:
+   ```bash
+   $ cd angular-recruitment-platform
+   $ npm install
+   ``` 
+3. Start the Angular development server:
+   ```bash
+   $ ng serve
+   ```
+5. Access the application at http://localhost:4200 in your web browser.
+   
+## Usage
+
+- Navigate through the application using the provided links in the header.
+- Input data in the appropriate fields to preview business cards and CVs.
+- Explore different functionalities such as rainbow writing and recruitment alerts.
+
+## Contributing
+
+Contributions are welcome! If you have any suggestions, improvements, or bug fixes, feel free to open an issue or create a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- Thanks to Angular for providing a powerful framework for building web applications.
+- Special thanks to all contributors who helped in the development of this project.
